@@ -11,6 +11,7 @@ export default function AppText({inputType = 'textinput', ...resProps}) {
         <InputTextField
           autoCapitalize="none"
           autoCorrect={false}
+          autoCompleteType="off"
           secureTextEntry={displayPassword}
           {...resProps}
         />
@@ -25,7 +26,12 @@ export default function AppText({inputType = 'textinput', ...resProps}) {
 
   return (
     <Container>
-      <InputTextField autoCapitalize="none" autoCorrect={false} {...resProps} />
+      <InputTextField
+        autoCapitalize="none"
+        autoCorrect={false}
+        autoCompleteType="off"
+        {...resProps}
+      />
     </Container>
   );
 }

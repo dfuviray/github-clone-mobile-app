@@ -1,10 +1,10 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import AppButton from '../components/AppButton/AppButton';
-import AppText from '../components/AppText/AppText';
+import AppButton from '../../components/AppButton/AppButton';
+import AppText from '../../components/AppText/AppText';
 import {Container} from './LoginScreenStyles';
-import {colors} from '../config/colors';
+import {colors} from '../../config/colors';
 
 export default function LoginScreen() {
   return (

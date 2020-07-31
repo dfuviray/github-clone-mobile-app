@@ -1,9 +1,9 @@
 import React from 'react';
 
-import LoginScreen from './app/screens/LoginScreen';
+import RepoScreen from './app/screens/RepoScreen/RepoScreen';
 
 const App = () => {
-  return <LoginScreen />;
+  return <RepoScreen />;
 };
 
 export default App;
