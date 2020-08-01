@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {ActivityIndicator} from 'react-native';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -9,6 +9,7 @@ import AppText from '../../components/AppText/AppText';
 import {colors} from '../../config/colors';
 import {Container} from './RepoScreenStyles';
 import useRepoSearch from '../../hooks/useRepoSearch';
+import LoginContext from '../../context/LoginContext';
 
 // const regEx = /[a-zA-Z][/][a-zA-Z]/;
 let schema = yup.object().shape({
@@ -17,8 +18,14 @@ let schema = yup.object().shape({
 });
 
 export default function RepoScreen({navigation}) {
+  useEffect(() => {}, []);
+  const {auth} = useContext(LoginContext);
   const {data, error, loading, response: loadData} = useRepoSearch();
 
+  if (!auth.login) {
+    navigation.navigate('Login');
+    return null;
+  }
   return (
     <Container>
       <Formik

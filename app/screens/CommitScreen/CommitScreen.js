@@ -1,17 +1,25 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {FlatList} from 'react-native';
 
 import {Container, LoadingSpinner, Message} from './CommitScreenStyles';
 import ItemSeparator from '../../components/ItemSeparator/ItemSeparator';
 import ListItem from '../../components/ListItem/ListItem';
 import useRepoSearch from '../../hooks/useRepoSearch';
+import LoginContext from '../../context/LoginContext';
 
-export default function CommitScreen({route}) {
-  const {params} = route;
-  const {data, error, loading, response} = useRepoSearch();
+export default function CommitScreen({navigation, route}) {
   useEffect(() => {
     response(params);
   }, []);
+  const {params} = route;
+  const {data, error, loading, response} = useRepoSearch();
+
+  const {auth} = useContext(LoginContext);
+
+  if (!auth.login) {
+    navigation.navigate('Login');
+    return <LoadingSpinner color="#000" size="large" />;
+  }
 
   if (!loading && error) return <Message>Could not load data</Message>;
 
