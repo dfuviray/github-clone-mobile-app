@@ -1,9 +1,9 @@
 import React from 'react';
 
-import RepoScreen from './app/screens/RepoScreen/RepoScreen';
+import StackNavigation from './app/navigation/StackNavigation';
 
 const App = () => {
-  return <RepoScreen />;
+  return <StackNavigation />;
 };
 
 export default App;

@@ -6,7 +6,7 @@ import AppText from '../../components/AppText/AppText';
 import {Container} from './LoginScreenStyles';
 import {colors} from '../../config/colors';
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
   return (
     <Container>
       <Icon
@@ -17,7 +17,7 @@ export default function LoginScreen() {
       />
       <AppText placeholder="Username" />
       <AppText placeholder="Password" inputType="password" />
-      <AppButton label="Login" />
+      <AppButton label="Login" onPress={() => navigation.navigate('Repo')} />
     </Container>
   );
 }
