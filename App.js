@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {decode as atob, encode as btoa} from 'base-64';
 import axios from 'axios';
 
 import LoginContext from './app/context/LoginContext';
